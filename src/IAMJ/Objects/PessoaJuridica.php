@@ -12,17 +12,11 @@ class PessoaJuridica extends Pessoa
 
     /**
      * @param string $nome
-     * @param string $sexo
-     * @param string $cnpj
      * @param string $endereco
      */
-    function __construct($nome = null, $sexo = null, $cnpj = null, $endereco = null)
+    function __construct($nome = null, $endereco = null)
     {
-        $this->setNome($nome);
-        $this->setCnpj($cnpj);
-        $this->setEndereco($endereco);
-        $this->setSexo($sexo);
-        return $this;
+        parent::__construct($nome, $endereco);
     }
 
     /**

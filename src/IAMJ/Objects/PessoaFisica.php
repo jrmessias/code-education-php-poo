@@ -12,17 +12,11 @@ class PessoaFisica extends Pessoa
 
     /**
      * @param string $nome
-     * @param string $sexo
-     * @param string $cpf
      * @param string $endereco
      */
-    function __construct($nome = null, $sexo = null, $cpf = null, $endereco = null)
+    function __construct($nome = null, $endereco = null)
     {
-        $this->setNome($nome);
-        $this->setCpf($cpf);
-        $this->setEndereco($endereco);
-        $this->setSexo($sexo);
-        return $this;
+        parent::__construct($nome, $endereco);
     }
 
     /**

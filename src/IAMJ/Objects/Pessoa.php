@@ -36,17 +36,12 @@ class Pessoa implements Avaliacao, EnderecoCobranca
 
     /**
      * @param string $nome
-     * @param char $sexo
      * @param string $endereco
-     * @param char $tipo
      */
-    function __construct($nome = null, $sexo = null, $endereco = null, $tipo = null)
+    function __construct($nome = null, $endereco = null)
     {
         $this->setNome($nome);
-        $this->setTipo($tipo);
         $this->setEndereco($endereco);
-        $this->setSexo($sexo);
-        return $this;
     }
 
     /**
