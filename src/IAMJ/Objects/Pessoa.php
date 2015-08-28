@@ -2,41 +2,55 @@
 
 namespace IAMJ\Objects;
 
-class Pessoa
+use IAMJ\Interfaces\Avaliacao;
+use IAMJ\Interfaces\EnderecoCobranca;
+use Exception;
+
+class Pessoa implements Avaliacao, EnderecoCobranca
 {
-    private $nome;
-    private $cpf;
-    private $endereco;
-    private $sexo;
+    /**
+     * @var string $nome
+     */
+    protected $nome;
+    /**
+     * @var string $endereco
+     */
+    protected $endereco;
+    /**
+     * @var char $sexo
+     */
+    protected $sexo;
+    /**
+     * @var char $tipo
+     */
+    protected $tipo;
+    /**
+     * @var integer $avaliacao
+     */
+    protected $avaliacao;
 
     /**
-     * @param $nome
-     * @param $cpf
-     * @param $endereco
-     * @param $sexo
+     * @var string $enderecoCobranca
      */
-    function __construct($nome = null, $cpf = null, $endereco = null, $sexo = null)
+    protected $enderecoCobranca;
+
+    /**
+     * @param string $nome
+     * @param char $sexo
+     * @param string $endereco
+     * @param char $tipo
+     */
+    function __construct($nome = null, $sexo = null, $endereco = null, $tipo = null)
     {
         $this->setNome($nome);
-        $this->setCpf($cpf);
+        $this->setTipo($tipo);
         $this->setEndereco($endereco);
         $this->setSexo($sexo);
         return $this;
     }
 
-
     /**
-     * @param mixed $cpf
-     * @return Pessoa
-     */
-    public function setCpf($cpf)
-    {
-        $this->cpf = $cpf;
-        return $this;
-    }
-
-    /**
-     * @param mixed $endereco
+     * @param string $endereco
      * @return Pessoa
      */
     public function setEndereco($endereco)
@@ -46,7 +60,7 @@ class Pessoa
     }
 
     /**
-     * @param mixed $nome
+     * @param string $nome
      * @return Pessoa
      */
     public function setNome($nome)
@@ -56,7 +70,20 @@ class Pessoa
     }
 
     /**
-     * @param $sexo
+     * @param char $tipo
+     * @return Pessoa
+     */
+    public function setTipo($tipo)
+    {
+        if (!in_array($tipo, array('F', 'J')))
+            throw new Exception('Tipo inválido. (F ou J)');
+
+        $this->tipo = $tipo;
+        return $this;
+    }
+
+    /**
+     * @param char $sexo
      * @return Pessoa
      */
     public function setSexo($sexo)
@@ -66,11 +93,16 @@ class Pessoa
     }
 
     /**
-     * @return string
+     * @param integer $avaliacao
+     * @return Pessoa
      */
-    public function getCpf()
+    public function setAvaliacao($avaliacao)
     {
-        return $this->cpf;
+        if ($avaliacao <= 0 || $avaliacao > 5)
+            throw new Exception('Avaliação inválida. (1 a 5)');
+
+        $this->avaliacao = $avaliacao;
+        return $this;
     }
 
     /**
@@ -97,5 +129,36 @@ class Pessoa
         return $this->sexo;
     }
 
+    /**
+     * @return string
+     */
+    public function getTipo()
+    {
+        return $this->tipo;
+    }
 
+    /**
+     * @return integer
+     */
+    public function getAvaliacao()
+    {
+        return $this->avaliacao;
+    }
+
+    /**
+     * @param string $endereco
+     */
+    public function setEnderecoCobranca($endereco)
+    {
+        $this->enderecoCobranca = $endereco;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEnderecoCobranca()
+    {
+        return $this->enderecoCobranca;
+    }
 }

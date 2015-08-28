@@ -42,7 +42,7 @@ include 'bootstrap.php';
 <div class="ui main text container">
     <h1 class="ui header">PHP OO - Code Education</h1>
 
-    <p>Exercício 1</p>
+    <p>Exercício 2</p>
 </div>
 
 <hr>
@@ -57,19 +57,23 @@ include 'bootstrap.php';
         <tr>
             <th class="">Nome</th>
             <th class="">CPF</th>
+            <th class="">Tipo</th>
+            <th class="">Avaliação</th>
             <th class="">Ver</th>
         </tr>
         </thead>
         <tbody>
         <?php
         foreach ($pessoa as $p) {
-
+            $documento = ($p->getTipo() == 'F') ? $p->getCpf() : $p->getCnpj();
             ?>
 
             <tr>
                 <td><?php echo $p->getNome(); ?></td>
-                <td><?php echo $p->getCpf(); ?></td>
-                <td><a class="ui show-modal" data-target="m<?php echo onlyNumbers($p->getCpf()); ?>" href="#"><i class="search icon"></i></a></td>
+                <td><?php echo $documento; ?></td>
+                <td><?php echo $p->getTipo(); ?></td>
+                <td><?php echo $p->getAvaliacao().' '.str_repeat('<i class="star icon"></i>', $p->getAvaliacao()); ?></td>
+                <td><a class="ui show-modal" data-target="m<?php echo onlyNumbers($documento); ?>" href="#"><i class="search icon"></i></a></td>
             </tr>
             <?php
         }
@@ -81,7 +85,7 @@ include 'bootstrap.php';
     foreach ($pessoa as $p) {
 
         ?>
-        <div class="ui basic modal m<?php echo onlyNumbers($p->getCpf()); ?>">
+        <div class="ui basic modal m<?php echo onlyNumbers(($p->getTipo() == 'F') ? $p->getCpf() : $p->getCnpj()); ?>">
             <i class="close icon"></i>
 
             <div class="header">
@@ -91,8 +95,11 @@ include 'bootstrap.php';
                 <div class="description">
                     <p>Nome: <?php echo $p->getNome(); ?></p>
                     <p>Endereço: <?php echo $p->getEndereco(); ?></p>
-                    <p>CPF: <?php echo $p->getCpf(); ?></p>
+                    <p>Endereço de Cobrança: <?php echo $p->getEnderecoCobranca(); ?></p>
+                    <p>CPF/CNPJ: <?php echo ($p->getTipo() == 'F') ? $p->getCpf() : $p->getCnpj(); ?></p>
+                    <p>Pessoa: <?php echo $p->getTipo(); ?></p>
                     <p>Sexo: <?php echo $p->getSexo(); ?></p>
+                    <p>Avaliação: <?php echo str_repeat('<i class="star icon"></i>', $p->getAvaliacao()); ?></p>
                 </div>
             </div>
             <div class="actions">

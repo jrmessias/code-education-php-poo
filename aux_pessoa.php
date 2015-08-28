@@ -1,86 +1,106 @@
 <?php
 
-use \IAMJ\Objects\Pessoa as Pessoa;
+use \IAMJ\Objects\PessoaFisica as PessoaFisica;
+use \IAMJ\Objects\PessoaJuridica as PessoaJuridica;
 
 $pessoa = [];
 
-$pessoa1 = new Pessoa();
+$pessoa1 = new PessoaFisica();
 $pessoa1->setNome('Diego Ferreira Dias')
-->setCpf('582.306.840-90')
-->setEndereco('Rua Luiz Laino, 1848, Sorocaba-SP')
-->setSexo('M');
+    ->setCpf('582.306.840-90')
+    ->setEndereco('Rua Luiz Laino, 1848, Sorocaba-SP')
+    ->setEnderecoCobranca('Rua Amapá, 1446, Sorocaba-SP')
+    ->setSexo('M')
+    ->setAvaliacao(mt_rand(1, 5));
 
 array_push($pessoa, $pessoa1);
 
-$pessoa2 = new Pessoa();
+$pessoa2 = new PessoaFisica();
 $pessoa2->setNome('Luan Pereira Gomes')
-->setCpf('776.789.343-00')
-->setEndereco('Quadra Quadra 198, Luziânia-GO')
-->setSexo('M');
+    ->setCpf('776.789.343-00')
+    ->setEndereco('Quadra 198, Luziânia-GO')
+    ->setEnderecoCobranca('Rua Luiz Laino, 1848, Luziânia-GO')
+    ->setSexo('M')
+    ->setAvaliacao(mt_rand(1, 5));
 
 array_push($pessoa, $pessoa2);
 
-$pessoa3 = new Pessoa();
+$pessoa3 = new PessoaFisica();
 $pessoa3->setNome('Larissa Goncalves Dias')
-->setCpf('606.663.736-39')
-->setEndereco('2ª Travessa da Tranqüilidade, 1231, Salvador-BA')
-->setSexo('F');
+    ->setCpf('606.663.736-39')
+    ->setEndereco('2ª Travessa da Tranqüilidade, 1231, Salvador-BA')
+    ->setEnderecoCobranca('Quadra Quadra 198, Salvador-BA')
+    ->setSexo('F')
+    ->setAvaliacao(mt_rand(1, 5));
 
 array_push($pessoa, $pessoa3);
 
-$pessoa4 = new Pessoa();
+$pessoa4 = new PessoaFisica();
 $pessoa4->setNome('Sofia Silva Santos')
-->setCpf('264.383.757-64')
-->setEndereco('Rua Pioneiro Giusepe Portolese, 603, Maringá-PR')
-->setSexo('F');
+    ->setCpf('264.383.757-64')
+    ->setEndereco('Rua Pioneiro Giusepe Portolese, 603, Maringá-PR')
+    ->setEnderecoCobranca('2ª Travessa da Tranqüilidade, 1231, Maringá-PR')
+    ->setSexo('F')
+    ->setAvaliacao(mt_rand(1, 5));
 
 array_push($pessoa, $pessoa4);
 
-$pessoa5 = new Pessoa();
+$pessoa5 = new PessoaFisica();
 $pessoa5->setNome('Livia Rodrigues Gomes')
-->setCpf('662.927.696-58')
-->setEndereco('Rua Pedro José Vieira, 627, Vitória-ES')
-->setSexo('F');
+    ->setCpf('662.927.696-58')
+    ->setEndereco('Rua Pedro José Vieira, 627, Vitória-ES')
+    ->setEnderecoCobranca('Rua Pioneiro Giusepe Portolese, 603, Vitória-ES')
+    ->setSexo('F')
+    ->setAvaliacao(mt_rand(1, 5));
 
 array_push($pessoa, $pessoa5);
 
-$pessoa6 = new Pessoa();
+$pessoa6 = new PessoaJuridica();
 $pessoa6->setNome('Luan Barbosa Castro')
-    ->setCpf('470.573.841-14')
+    ->setCnpj('44.038.514/0001-01')
     ->setEndereco('Rua Hanah Daud, 1007, São José do Rio Preto-SP')
-    ->setSexo('M');
+    ->setEnderecoCobranca('Rua Pedro José Vieira, 627, São José do Rio Preto-SP')
+    ->setSexo('M')
+    ->setAvaliacao(mt_rand(1, 5));
 
 array_push($pessoa, $pessoa6);
 
-$pessoa7 = new Pessoa();
+$pessoa7 = new PessoaJuridica();
 $pessoa7->setNome('Marisa Barbosa Oliveira')
-    ->setCpf('286.474.302-71')
+    ->setCnpj('80.646.552/0001-00')
     ->setEndereco('Rua Félix de Otero, 1940, São Paulo-SP')
-    ->setSexo('F');
+    ->setEnderecoCobranca('Rua Hanah Daud, 1007, São Paulo-SP')
+    ->setSexo('F')
+    ->setAvaliacao(mt_rand(1, 5));
 
 array_push($pessoa, $pessoa7);
 
-$pessoa8 = new Pessoa();
+$pessoa8 = new PessoaJuridica();
 $pessoa8->setNome('Estevan Martins Barbosa')
-    ->setCpf('135.951.876-28')
+    ->setCnpj('78.944.175/0001-44')
     ->setEndereco('3ª Travessa Gersino Coelho, 1739, Salvador-BA')
-    ->setSexo('M');
+    ->setEnderecoCobranca('Rua Félix de Otero, 1940, Salvador-BA')
+    ->setSexo('M')
+    ->setAvaliacao(mt_rand(1, 5));
 
 array_push($pessoa, $pessoa8);
 
-$pessoa9 = new Pessoa();
+$pessoa9 = new PessoaJuridica();
 $pessoa9->setNome('Beatriz Goncalves Martins')
-    ->setCpf('364.464.875-17')
+    ->setCnpj('26.419.896/0001-31')
     ->setEndereco('Rua Um, 1594, Itapetininga-SP')
-    ->setSexo('F');
+    ->setEnderecoCobranca('3ª Travessa Gersino Coelho, 1739, Itapetininga-SP')
+    ->setSexo('F')
+    ->setAvaliacao(mt_rand(1, 5));
 
 array_push($pessoa, $pessoa9);
 
-$pessoa10 = new Pessoa();
+$pessoa10 = new PessoaJuridica();
 $pessoa10->setNome('Vitoria Lima Gomes')
-    ->setCpf('619.401.780-53')
+    ->setCnpj('23.828.082/0001-62')
     ->setEndereco('Rua Amapá, 1446, Votuporanga-SP')
-    ->setSexo('F');
+    ->setEnderecoCobranca('Rua Um, 1594, Votuporanga-SP')
+    ->setSexo('F')
+    ->setAvaliacao(mt_rand(1, 5));
 
 array_push($pessoa, $pessoa10);
-
