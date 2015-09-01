@@ -42,7 +42,7 @@ include 'bootstrap.php';
 <div class="ui main text container">
     <h1 class="ui header">PHP OO - Code Education</h1>
 
-    <p>Exercício 2</p>
+    <p>Exercício 3</p>
 </div>
 
 <hr>
