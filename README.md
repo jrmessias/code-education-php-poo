@@ -1,6 +1,11 @@
 AULA CODE EDUCATION - PHP POO
 ***
 
+**Exercicio 3**
+
+Refatoração
+______________
+
 **Exercicio 2**
 
 Tipos de clientes
